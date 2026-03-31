@@ -20,7 +20,7 @@ public class Main {
       world.addFood(food2);
       System.out.println(world.getFoods());
       
-      Creature beast = new Creature("beast", "brown", 5, 8, 6, 2, 2);
+      Creature beast = new Creature("beast", "brown", 5, 8, 6, 2, 2, 0);
       world.addCreature(beast);
       System.out.println(world.getCreatures());
       System.out.println(world.getFoods());

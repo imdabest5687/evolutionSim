@@ -9,6 +9,8 @@ public class World {
    
    private List<Creature> creatures;
    private List<Food> foods;
+
+   private List<Creature> babies = new ArrayList<>();
    
    
    public World(int width, int height) {
@@ -53,6 +55,16 @@ public class World {
             }
          }
       }
+
+      for (Creature a : creatures) {
+         if (a.getTotalEnergy() >= 5) {
+            Creature baby = a.reproduce();
+            a.loseEnergy(2);
+            babies.add(baby);
+         }
+      }
+
+      creatures.addAll(babies);
 
       for (int i = creatures.size() - 1; i >= 0; i--) {
          Creature a = creatures.get(i);
