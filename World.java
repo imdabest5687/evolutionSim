@@ -9,6 +9,8 @@ public class World {
    
    private List<Creature> creatures;
    private List<Food> foods;
+
+   List<Creature> babies = new ArrayList<>();
    
    
    public World(int width, int height) {
@@ -35,7 +37,7 @@ public class World {
    }
    
    public void update() {
-      List<Creature> babies = new ArrayList<>();
+      
       for (Creature a : creatures) {
          int speed = a.getSpeed();
          int dx = ThreadLocalRandom.current().nextInt(-speed, speed + 1);
@@ -56,14 +58,15 @@ public class World {
       }
 
       for (Creature a : creatures) {
-         if (a.getTotalEnergy() >= 1) {
+         if (a.getTotalEnergy() >= 10) {
             Creature baby = a.reproduce();
-            a.loseEnergy(2);
+            a.loseEnergy(5);
             babies.add(baby);
          }
       }
 
       creatures.addAll(babies);
+      babies.clear();
 
       for (int i = creatures.size() - 1; i >= 0; i--) {
          Creature a = creatures.get(i);

@@ -26,7 +26,7 @@ public class Main {
       System.out.println(world.getFoods());
 
       for (int i = 0; i < 3; i++) {
-         System.out.println("--- Round " + (i + 1) + " ---");
+         System.out.println(textStyles.RED + "---" + textStyles.BOLD + textStyles.GREEN + textStyles.ITALIC + " Round " + (i + 1) + textStyles.RESET + textStyles.RED + " ---" + textStyles.RESET);
          world.update();
          System.out.println("------------");
          System.out.println(world.getCreatures());
@@ -40,6 +40,7 @@ public class Main {
             } catch (InterruptedException e) {
                Thread.currentThread().interrupt();
                System.out.println("Thread was interrupted.");
+               
             }
          }
          
