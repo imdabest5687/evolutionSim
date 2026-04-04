@@ -3,41 +3,38 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class World {
-
    private int width;
    private int height;
-   
+
    private List<Creature> creatures;
    private List<Food> foods;
 
    List<Creature> babies = new ArrayList<>();
-   
-   
+
    public World(int width, int height) {
       this.width = width;
       this.height = height;
       creatures = new ArrayList<>();
       foods = new ArrayList<>();
    }
-   
+
    public void addCreature(Creature creature) {
       creatures.add(creature);
    }
-   
+
    public void addFood(Food food) {
       foods.add(food);
    }
-   
+
    public List<Creature> getCreatures() {
       return creatures;
    }
-   
+
    public List<Food> getFoods() {
       return foods;
    }
-   
+
    public void update() {
-      
       for (Creature a : creatures) {
          int speed = a.getSpeed();
          int dx = ThreadLocalRandom.current().nextInt(-speed, speed + 1);
@@ -74,7 +71,5 @@ public class World {
             creatures.remove(i);
          }
       }
-      
    }
-
 }
