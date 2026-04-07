@@ -1,4 +1,9 @@
+import java.util.Random;
+
 public class Creature {
+
+   private Random random = new Random();
+
    private String animal;
    private String color;
    private int speed;
@@ -71,12 +76,13 @@ public class Creature {
       totalEnergy -= energyRemoval;
    }
 
-   /*public Creature reproduce(String animal, String color, int speed, int strength, int totalEnergy, int x, int y) {
-      Creature a = new Creature(animal, color, speed, strength, totalEnergy, x, y);
-      return a;
-   }*/
-
    public Creature reproduce() {
-      return new Creature(animal, color, speed, strength, 10, x, y, 0);
-   }
+   int speedChange = random.nextInt(-1, 2);
+   int strengthChange = random.nextInt(-1, 2);
+
+   int babySpeed = Math.max(1, speed + speedChange);
+   int babyStrength = Math.max(1, strength + strengthChange);
+
+   return new Creature(animal, color, babySpeed, babyStrength, 10, x, y, 0);
+}
 }

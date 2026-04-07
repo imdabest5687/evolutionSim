@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 public class World {
    private int width;
    private int height;
+
+   private Random random = new Random();
 
    private List<Creature> creatures;
    private List<Food> foods;
@@ -32,6 +35,13 @@ public class World {
 
    public List<Food> getFoods() {
       return foods;
+   }
+
+   public void spawnFood() {
+      int ranX = random.nextInt(0, 51);
+      int ranY = random.nextInt(0, 51);
+
+      int ranFoodIndex = random.nextInt(0, 4);
    }
 
    public void update() {
